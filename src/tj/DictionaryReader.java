@@ -5,27 +5,40 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
 
+/**
+ * {{@DictionaryReader}} Objekt liest ein Wörterbuch der deutschen Sprache ein.
+ */
 public class DictionaryReader {
 
+    /**
+     * Dictionary Datei
+     */
     private final File file;
 
+    //Konstruktor
     public DictionaryReader(File file){
         this.file = file;
     }
 
+    /**
+     * Liest die Datei aufgrund der Größe mit einem BufferedReader.
+     * @return Liste mit Wörtern aus Wörterbuch-Datei.
+     * @implNote Kann sehr groß werden.
+     */
     public List<String> readDictionaryFile()   {
         List<String> dictionary = new ArrayList<>();
-        System.out.println(10);
         try {
-            System.out.println(15);
             FileInputStream fis = new FileInputStream(file);
+            //Charset "ISO_8859_1" für alle möglichen Sonderzeichen der deutschen Sprache
             InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.ISO_8859_1);
             BufferedReader br = new BufferedReader(isr);
             String line = "";
             while((line=br.readLine())!=null)
             {
+                //Aufgrund der Keymap Daten für die Länge der Distanzen, müssen Sonderzeichen ersetzt werden.
+                // Es wird davon ausgegangen das durch drücken von alt/shift oder ähnlichen Tasten das Sonderzeichen erstellt werden kann.
+                //TODO: Keymap Daten beziehen sich auf eine englische Tastatur, vielleicht wäre es möglich die Daten für eine deutsche Tastatur zu bekommen. -> Kontakt mit "Stand-up Maths"
                 if(line.contains("ä")||line.contains("Ä")){
                    line =  line.replaceAll("[äÄ]","AE");
                 }
