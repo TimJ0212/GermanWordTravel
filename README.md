@@ -2,12 +2,12 @@
  Eine Alternative zu "Stand-up Maths" Projekt zur Bestimmung von zurückgelegter Länge auf Tastaturen pro Wort, allerdings für deutsche Wörter.
  
 # Credit
- Daten zur Distanz auf der Tastatur: Stand-up Maths- https://www.youtube.com/watch?v=Mf2H9WZSIyw
+ Daten zur Distanz auf der Tastatur: Stand-up Maths- https://www.youtube.com/watch?v=Mf2H9WZSIyw <br>
  Deutsches Wörterbuch: Jan Schreiber- https://sourceforge.net/projects/germandict/
 
 # Ergebnisse
- Das Wort: ROENTGENPHOTOELEKTRONENSPEKTROSKOPIE hatte mit 2770.46mm die längste Länge auf der Tastatur.
- Das Wort: PAPA hatte mit 503.31mm die längste Länge auf der Tastatur pro Buchstabe.
+ Das Wort: ROENTGENPHOTOELEKTRONENSPEKTROSKOPIE hatte mit 2770.46mm die größte Länge auf der Tastatur. <br>
+ Das Wort: PAPA hatte mit 503.31mm die größte Länge auf der Tastatur pro Buchstabe.
  
 # Verlässlichkeit
  Momentan leider nicht 100% da
