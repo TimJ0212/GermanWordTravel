@@ -8,17 +8,17 @@ import java.util.List;
 public class DistanceCalculator {
 
     //Kümmert sich um die Travel Distance HashMap
-    private static final File TRAVEL_DISTANCE_FILE = new File("/home/tim/IdeaProjects/GermanWordTravel/resources/travelDistances.txt");
+    private static final File TRAVEL_DISTANCE_FILE = new File("resources/travelDistances.txt");
     private static TravelDistanceReader travelDistanceReader = new TravelDistanceReader(TRAVEL_DISTANCE_FILE);
     private static HashMap<HashMap<Character, Character>, Double> TRAVEL_DISTANCE = travelDistanceReader.readTravelDistanceFromFile();
 
     //Kümmert sich um das Wörterbuch
-    private static final File DICTIONARY_FILE = new File("/home/tim/IdeaProjects/GermanWordTravel/resources/german.dic");
+    private static final File DICTIONARY_FILE = new File("resources/duden.dic");
     private static DictionaryReader dictionaryReader = new DictionaryReader(DICTIONARY_FILE);
     private static List<String> dictionary = dictionaryReader.readDictionaryFile();
 
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
 
         int dictionarySize = dictionary.size();
         System.out.println(dictionarySize);
@@ -49,6 +49,9 @@ public class DistanceCalculator {
                 highestDistancePerChar = distancePerChar;
                 indexOfHighestDistancePerChar = i;
             }
+            //System.out.print(word + "hat eine absolute Länge von: ");
+            //System.out.print(distances[i] + " und eine relative Länge von: ");
+            //System.out.println(distances[i]/word.length());
         }
         //Ausgabe der größten Distanzen.
         System.out.println("Das Wort: " + words[indexOfHighestDistance] + " hatte mit " + distances[indexOfHighestDistance] + "mm die längste Länge auf der Tastatur");
@@ -57,7 +60,7 @@ public class DistanceCalculator {
 
     /**
      * Methode zur Berechnung der Distanz eines Wortes.
-     * @param word
+     * @param word welches zur Distanzberechnung genutzt wird.
      * @return Länge, die auf der Tastatur zurückgelegt werden muss, um das Wort zu schreiben.
      */
     private static double calculateDistance(String word) {
